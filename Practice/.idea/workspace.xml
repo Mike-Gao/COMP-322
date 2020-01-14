@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="Practice" targetName="VariablesAndTypes" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e695f669-f8e2-4a0e-a350-22058b7d671e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="PokdpaNX" />
+  </component>
+  <component name="ProjectId" id="1WMNJGyONAOKG5jBo0ktjHkJne1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="VariablesAndTypes" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Practice" TARGET_NAME="VariablesAndTypes" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Practice" RUN_TARGET_NAME="VariablesAndTypes">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e695f669-f8e2-4a0e-a350-22058b7d671e" name="Default Changelist" comment="" />
+      <created>1578955430805</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578955430805</updated>
+      <workItem from="1578955438304" duration="2283000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="138" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578955579705">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="421" y="138" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1578955579705" />
+    <state width="1324" height="202" key="GridCell.Tab.0.bottom" timestamp="1578957346776">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1324" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1578957346776" />
+    <state width="1324" height="202" key="GridCell.Tab.0.bottom/39.23.1327.745@39.23.1327.745" timestamp="1578956791255" />
+    <state width="1324" height="202" key="GridCell.Tab.0.center" timestamp="1578957346774">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1324" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1578957346774" />
+    <state width="1324" height="202" key="GridCell.Tab.0.center/39.23.1327.745@39.23.1327.745" timestamp="1578956791252" />
+    <state width="1324" height="202" key="GridCell.Tab.0.left" timestamp="1578957346773">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1324" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1578957346773" />
+    <state width="1324" height="202" key="GridCell.Tab.0.left/39.23.1327.745@39.23.1327.745" timestamp="1578956791251" />
+    <state width="1324" height="202" key="GridCell.Tab.0.right" timestamp="1578957346775">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1324" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1578957346775" />
+    <state width="1324" height="202" key="GridCell.Tab.0.right/39.23.1327.745@39.23.1327.745" timestamp="1578956791254" />
+    <state x="381" y="228" key="com.intellij.ide.util.TipDialog" timestamp="1578955437255">
+      <screen x="39" y="23" width="1327" height="745" />
+    </state>
+    <state x="381" y="228" key="com.intellij.ide.util.TipDialog/39.23.1327.745@39.23.1327.745" timestamp="1578955437255" />
+  </component>
+</project>
