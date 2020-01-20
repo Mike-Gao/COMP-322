@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
+      <config projectName="Practice" targetName="ClassesAndObjects" />
       <config projectName="Practice" targetName="VariablesAndTypes" />
     </generated>
   </component>
@@ -11,7 +12,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e695f669-f8e2-4a0e-a350-22058b7d671e" name="Default Changelist" comment="" />
+    <list default="true" id="e695f669-f8e2-4a0e-a350-22058b7d671e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ClassesAndObjects/ClassesAndObjects.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClassesAndObjects/Person.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClassesAndObjects/Person.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,10 +28,14 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="PokdpaNX" />
   </component>
   <component name="ProjectId" id="1WMNJGyONAOKG5jBo0ktjHkJne1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -34,12 +45,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="CMake Application.ClassesAndObjects">
+    <configuration name="ClassesAndObjects" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Practice" TARGET_NAME="ClassesAndObjects" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Practice" RUN_TARGET_NAME="ClassesAndObjects">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VariablesAndTypes" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Practice" TARGET_NAME="VariablesAndTypes" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Practice" RUN_TARGET_NAME="VariablesAndTypes">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="CMake Application.ClassesAndObjects" />
+      <item itemvalue="CMake Application.VariablesAndTypes" />
+    </list>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -64,6 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1578955430805</updated>
       <workItem from="1578955438304" duration="2283000" />
+      <workItem from="1579484180589" duration="1535000" />
     </task>
     <servers />
   </component>
@@ -75,29 +96,30 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="421" y="138" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1578955579705" />
-    <state width="1324" height="202" key="GridCell.Tab.0.bottom" timestamp="1578957346776">
+    <state width="1324" height="202" key="GridCell.Tab.0.bottom" timestamp="1579485670931">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1578957346776" />
+    <state width="1324" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1579485670931" />
     <state width="1324" height="202" key="GridCell.Tab.0.bottom/39.23.1327.745@39.23.1327.745" timestamp="1578956791255" />
-    <state width="1324" height="202" key="GridCell.Tab.0.center" timestamp="1578957346774">
+    <state width="1324" height="202" key="GridCell.Tab.0.center" timestamp="1579485670930">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1578957346774" />
+    <state width="1324" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1579485670930" />
     <state width="1324" height="202" key="GridCell.Tab.0.center/39.23.1327.745@39.23.1327.745" timestamp="1578956791252" />
-    <state width="1324" height="202" key="GridCell.Tab.0.left" timestamp="1578957346773">
+    <state width="1324" height="202" key="GridCell.Tab.0.left" timestamp="1579485670929">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1578957346773" />
+    <state width="1324" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1579485670929" />
     <state width="1324" height="202" key="GridCell.Tab.0.left/39.23.1327.745@39.23.1327.745" timestamp="1578956791251" />
-    <state width="1324" height="202" key="GridCell.Tab.0.right" timestamp="1578957346775">
+    <state width="1324" height="202" key="GridCell.Tab.0.right" timestamp="1579485670930">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1578957346775" />
+    <state width="1324" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1579485670930" />
     <state width="1324" height="202" key="GridCell.Tab.0.right/39.23.1327.745@39.23.1327.745" timestamp="1578956791254" />
-    <state x="381" y="228" key="com.intellij.ide.util.TipDialog" timestamp="1578955437255">
-      <screen x="39" y="23" width="1327" height="745" />
+    <state x="379" y="228" key="com.intellij.ide.util.TipDialog" timestamp="1579484180722">
+      <screen x="36" y="23" width="1330" height="745" />
     </state>
+    <state x="379" y="228" key="com.intellij.ide.util.TipDialog/36.23.1330.745@36.23.1330.745" timestamp="1579484180722" />
     <state x="381" y="228" key="com.intellij.ide.util.TipDialog/39.23.1327.745@39.23.1327.745" timestamp="1578955437255" />
   </component>
 </project>
