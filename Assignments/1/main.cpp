@@ -1,6 +1,26 @@
 #include <iostream>
-
+#include "functions.h"
+using namespace std;
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    bool playerTurn;
+    int location;
+    greetAndInstruct();
+    char * board = new char[28];
+    /* initialize board */
+    for (int i = 1; i < 28; i++){
+        board[i] = '?';
+    }
+    while (!checkWinner(board))
+    {
+        displayBoard(board);
+        cout << "Please enter the location you want to place your x:" << endl;
+        cin >> location;
+        while (!checkifLegal(location,board)){
+            cout << "Invalid move! Please enter the location again:" << endl;
+            cin >> location;
+        }
+        board[location] = 'x';
+        displayBoard(board);
+        computerMove(board);
+    }
 }
