@@ -62,7 +62,14 @@ bool checkWinner(char board[])
     // Rows on single board
     // {1,2,3}, {4,5,6}, {7,8,9}, {10,11,12}, {13,14,15}, {16,17,18}, {19,20,21}, {22,23,24}, {25,26,27}
     for (int i = 1; i < 26; i++){
-        if(board[i] == board[i++] && board[i] == board[i+=2] && board[i]!='?'){
+        int j = i+1;
+        int k = i+2;
+        if(board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
+            /* for debugging purposes */
+//            cout << board[i] << endl;
+//            cout << board[j] << endl;
+//            cout << board[k] << endl;
+            /* for debugging purposes */
             return true;
         }
     }
@@ -70,7 +77,9 @@ bool checkWinner(char board[])
     // Columns on single board
     // {1,4,7}, {2,5,8}, {3,6,9}, {10,13,16}, {11,14,17}, {12,15,18}, {19,22,25}, {20,23,26}, {21,24,27}
     for (int i = 1; i < 22; i++){
-        if(board[i] == board[i+=3] && board[i] == board[i+=6] && board[i]!='?'){
+        int j = i+3;
+        int k = i+6;
+        if(board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
             return true;
         }
     }
@@ -80,11 +89,15 @@ bool checkWinner(char board[])
     for(int i = 1; i < 22; i++){
         if (i == 2 || (i > 3 && i < 10) || i == 11 || (i > 12 && i < 19) || i == 20 ) continue;
         if (i == 1 || i == 10 || i == 19) {
-            if(board[i] == board[i+=4] && board[i] == board[i+=8] && board[i]!='?'){
+            int j = i+4;
+            int k = i+8;
+            if(board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
                 return true;
             }
         } else {
-            if(board[i] == board[i+=2] && board[i] == board[i+=4] && board[i]!='?') {
+            int j = i+2;
+            int k = i+4;
+            if(board[i] == board[j] && board[i] == board[k] && board[i]!='?') {
                 return true;
             }
         }
@@ -93,7 +106,9 @@ bool checkWinner(char board[])
     // Straight down through the board
     // {1,10,19}, {2,11,20}, {3,12,21}, {4,13,22}, {5,14,23}, {6,15,24}, {7,16,25}, {8,17,26}, {9,18,27}
     for (int i = 1; i < 10; i++){
-        if (board[i] == board[i+=9] && board[i] == board[i+=18] && board[i]!='?'){
+        int j = i+9;
+        int k = i+18;
+        if (board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
             return true;
         }
     }
@@ -106,22 +121,30 @@ bool checkWinner(char board[])
     // {1,14,27}(13), {3,14,25}(11),
     // {7,14,21}(7), {9,14,19}(5)
     for(int i = 1; i < 4; i++){
-        if (board[i] == board[i+=12] && board[i] == board[i+=24] && board[i]!='?'){
+        int j = i+12;
+        int k = i+24;
+        if (board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
             return true;
         }
     }
     for(int i = 7; i < 10; i++){
-        if (board[i] == board[i+=6] && board[i] == board[i+=12] && board[i]!='?'){
+        int j = i+6;
+        int k = i+12;
+        if (board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
             return true;
         }
     }
     for(int i = 1; i < 8; i+=3){
-        if (board[i] == board[i+=10] && board[i] == board[i+=20] && board[i]!='?'){
+        int j = i+10;
+        int k = i+20;
+        if (board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
             return true;
         }
     }
     for(int i = 3; i < 10; i+=3){
-        if (board[i] == board[i+=8] && board[i] == board[i+=16] && board[i]!='?'){
+        int j = i+8;
+        int k = i+16;
+        if (board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
             return true;
         }
     }
@@ -149,6 +172,10 @@ void computerMove(char board[])
     for(int i = 1; i < 28; i++){
         if(checkifLegal(i,board)){
             board[i] = 'o';
+            /* for debugging purposes */
+            // cout << "testing iteration " << i << endl;
+            // displayBoard(board);
+            /* for debugging purposes */
             if (checkWinner(board)) return;
             board[i] = '?';
         }
@@ -164,7 +191,7 @@ void computerMove(char board[])
         }
     }
     int i = rand() % 27 + 1;
-    while (checkifLegal(i, board)){
+    while (!checkifLegal(i, board)){
         i = rand() % 27 + 1;
     }
     board[i] = 'o';
