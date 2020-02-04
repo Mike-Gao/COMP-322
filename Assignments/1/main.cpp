@@ -31,9 +31,14 @@ int main() {
             displayBoard(board);
         }
     }
+    // It has been mathematically proved that TicTacToe 3D does not have a tie condition. So we do not worry about it.
     if (playerTurn == true){
         cout << "Congrats! You WIN!" << endl;
+        cout << "Final Board:" << endl;
+        displayBoard(board);
     } else {
         cout << "CPU WIN!" << endl;
+        cout << "Final Board:" << endl;
+        displayBoard(board);
     }
 }

@@ -10,11 +10,11 @@ void greetAndInstruct()
     char input;
     cout << "Hello and welcome to the Tic-Tac-Toe challenge: Player against Computer." << endl;
     cout << "The board is numbered from 1 to 27 as per the following:\n" << endl;
-    cout << "1|2|3 10|11|12 19|20|21" << endl;
-    cout << "----- -------- --------" << endl;
-    cout << "4|5|6 13|14|15 22|23|24" << endl;
-    cout << "----- -------- --------" << endl;
-    cout << "7|8|9 16|17|18 25|26|27\n" << endl;
+    cout << " 1| 2| 3  10|11|12  19|20|21" << endl;
+    cout << "--------  --------  --------" << endl;
+    cout << " 4| 5| 6  13|14|15  22|23|24" << endl;
+    cout << "--------  --------  --------" << endl;
+    cout << " 7| 8| 9  16|17|18  25|26|27\n" << endl;
     cout << "Player starts first. Simply input the number of the cell you want to occupy. "
             "Player’s move is marked with X. Computer’s move is marked with O." << endl;
     cout << "    y) Play\n    n) Exit\n" << "\n> ";
@@ -26,7 +26,7 @@ void greetAndInstruct()
             case 'n' :
                 exit(0);
             default:
-                cout << "Error, please enter either 'y' or 'n'" << endl;
+                cout << "Error, please enter either 'y' or 'n'" << endl; // Error Handling
                 cin >> input;
         }
     }
@@ -35,24 +35,33 @@ void greetAndInstruct()
 
 void displayBoard (char board[])
 {
+    // First Row (1,2,3), (10,11,12), (19,20,21)
     for (int i = 1 ; i < 22 ; i++){
         if ((i > 3 && i < 10) || (i > 12 && i < 19)) continue;
-        cout << (board[i])
-             << ((i%3!=0)? '|' : ' ');
+        std::string s(1,board[i]);
+        cout << ((i<4 || board[i] == 'x' || board[i] == 'o') ? " " : "")
+             << ((board[i] == '?') ? to_string(i) : s)
+             << ((i%3!=0)? "|" : "  ");
     }
     cout << endl;
-    cout << "----- ----- -----" << endl;
+    // Second Row (4,5,6), (13,14,15), (22,23,24)
+    cout << "--------  --------  --------" << endl;
     for (int i = 4 ; i < 25 ; i++){
         if ((i > 6 && i < 13) || (i > 15 && i < 22)) continue;
-        cout << (board[i])
-             << ((i%3!=0)? '|' : ' ');
+        std::string s(1,board[i]);
+        cout << ((i<7 || board[i] == 'x' || board[i] == 'o') ? " " : "")
+             << ((board[i] == '?') ? to_string(i) : s)
+             << ((i%3!=0)? "|" : "  ");
     }
     cout << endl;
-    cout << "----- ----- -----" << endl;
+    // Third Row (7,8,9), (13,14,15), (22,23,24)
+    cout << "--------  --------  --------" << endl;
     for (int i = 7 ; i < 28 ; i++){
         if ((i > 9 && i < 16) || (i > 18 && i < 25)) continue;
-        cout << (board[i])
-             << ((i%3!=0)? '|' : ' ');
+        std::string s(1,board[i]);
+        cout << ((i<16 || board[i] == 'x' || board[i] == 'o') ? " " : "")
+             << ((board[i] == '?') ? to_string(i) : s)
+             << ((i%3!=0)? "|" : "  ");
     }
     cout << endl;
 }
@@ -61,7 +70,7 @@ bool checkWinner(char board[])
 {
     // Rows on single board
     // {1,2,3}, {4,5,6}, {7,8,9}, {10,11,12}, {13,14,15}, {16,17,18}, {19,20,21}, {22,23,24}, {25,26,27}
-    for (int i = 1; i < 26; i++){
+    for (int i = 1; i < 26; i+=3){
         int j = i+1;
         int k = i+2;
         if(board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
@@ -77,6 +86,7 @@ bool checkWinner(char board[])
     // Columns on single board
     // {1,4,7}, {2,5,8}, {3,6,9}, {10,13,16}, {11,14,17}, {12,15,18}, {19,22,25}, {20,23,26}, {21,24,27}
     for (int i = 1; i < 22; i++){
+        if ((i > 3 && i < 10) || (i > 12 && i < 19)) continue;
         int j = i+3;
         int k = i+6;
         if(board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
@@ -163,12 +173,14 @@ bool checkWinner(char board[])
 
 bool checkifLegal(int cellNbre, char board[])
 {
+    // Check if the board is occupied or out of bound.
     if (cellNbre < 1 || cellNbre > 27 ) return false;
     return (board[cellNbre] == '?') ? true : false;
 }
 
 void computerMove(char board[])
 {
+    // Make the move if it guarantees win
     for(int i = 1; i < 28; i++){
         if(checkifLegal(i,board)){
             board[i] = 'o';
@@ -180,6 +192,7 @@ void computerMove(char board[])
             board[i] = '?';
         }
     }
+    // Block if the player is about to win.
     for(int i = 1; i < 28; i++){
         if(checkifLegal(i,board)){
             board[i] = 'x';
@@ -190,10 +203,10 @@ void computerMove(char board[])
             board[i] = '?';
         }
     }
+    // Otherwise, make random valid move.
     int i = rand() % 27 + 1;
     while (!checkifLegal(i, board)){
         i = rand() % 27 + 1;
     }
     board[i] = 'o';
-
 }
