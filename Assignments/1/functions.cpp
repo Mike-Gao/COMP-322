@@ -26,6 +26,7 @@ void greetAndInstruct()
             case 'n' :
                 exit(0);
             default:
+                // Invalid input handling
                 cout << "Error, please enter either 'y' or 'n'" << endl; // Error Handling
                 cin >> input;
         }
@@ -73,7 +74,7 @@ bool checkWinner(char board[])
     for (int i = 1; i < 26; i+=3){
         int j = i+1;
         int k = i+2;
-        if(board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
+        if(board[i] == board[j] && board[i] == board[k] && board[i] != '?'){
             /* for debugging purposes */
 //            cout << board[i] << endl;
 //            cout << board[j] << endl;
@@ -89,7 +90,7 @@ bool checkWinner(char board[])
         if ((i > 3 && i < 10) || (i > 12 && i < 19)) continue;
         int j = i+3;
         int k = i+6;
-        if(board[i] == board[j] && board[i] == board[k] && board[i]!='?'){
+        if(board[i] == board[j] && board[i] == board[k] && board[i] != '?'){
             return true;
         }
     }
