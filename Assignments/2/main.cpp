@@ -1,6 +1,9 @@
 #include <iostream>
-
+#include <cstdlib>
+#include "blackjack.h"
+using namespace std;
 int main() {
+
     cout << "\tWelcome to the Comp322 Blackjack game!" << endl << endl;
     BlackJackGame game;
     // The main loop of the game
