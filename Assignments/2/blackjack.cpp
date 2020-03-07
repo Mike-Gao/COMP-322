@@ -19,7 +19,7 @@ public:
     Card(Rank r, Type t){
         this -> rank = r;
         this -> type = t;
-    };
+    }
     int getValue(){
         return (this->rank >= 10) ? 10 : this->rank;
     }
@@ -87,7 +87,8 @@ public:
     {
         shuffle();
     }
-    void deal(){
+    void deal(Hand h){
+        h.add(vec.back());
         vec.pop_back();
     }
 };
