@@ -39,10 +39,12 @@ class Hand{
 private:
     std::vector<Card> vec;
 public:
-    Hand(){
+    Hand()
+    {
         vec.reserve(30);
     }
-    void add(Card c){
+    void add(Card c)
+    {
         vec.push_back(c);
     }
     void clear() {
@@ -58,7 +60,8 @@ public:
             }
         }
         acc = total;
-        while (oneAcc != 0){
+        while (oneAcc != 0)
+        {
             acc += 10;
             if (acc == 21) break;
             if (acc > 21){
@@ -74,15 +77,16 @@ class Deck{
 private:
     std::vector<Card> vec;
 public:
-    Deck(){
+    Deck()
+    {
         vec.reserve(60);
         this->populate();
         this->shuffle();
     }
     void populate()
     {
-        for (int i = Card::ACE; i != Card::KING; i++){
-            for (int j = Card::CLUBS; i != Card::SPADES; i++)
+        for (int i = Card::ACE; i <= Card::KING ; i++){
+            for (int j = Card::CLUBS; i <= Card::SPADES ; i++)
             vec.push_back(Card(static_cast<Card::Rank>(i), static_cast<Card::Type>(j)));
         }
     }
