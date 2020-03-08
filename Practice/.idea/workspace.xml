@@ -12,7 +12,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e695f669-f8e2-4a0e-a350-22058b7d671e" name="Default Changelist" comment="" />
+    <list default="true" id="e695f669-f8e2-4a0e-a350-22058b7d671e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Assignments/2/blackjack.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignments/2/blackjack.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignments/2/blackjack.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignments/2/blackjack.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VariablesAndTypes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VariablesAndTypes.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="CMake Application.ClassesAndObjects">
+  <component name="RunManager" selected="CMake Application.VariablesAndTypes">
     <configuration name="ClassesAndObjects" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Practice" TARGET_NAME="ClassesAndObjects" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Practice" RUN_TARGET_NAME="ClassesAndObjects">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -79,6 +84,7 @@
       <updated>1578955430805</updated>
       <workItem from="1578955438304" duration="2283000" />
       <workItem from="1579484180589" duration="1664000" />
+      <workItem from="1583637620186" duration="735000" />
     </task>
     <servers />
   </component>

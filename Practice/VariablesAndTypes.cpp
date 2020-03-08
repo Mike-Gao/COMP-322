@@ -11,6 +11,7 @@ int main()
     int i1 = 1;
     std::cout << "i1=" << i1 << std::endl;
     int i2; // uninitialized
+    std::cout << "i2=" << i2 << std::endl;
     i2 = 2;
     std::cout << "i2=" << i2 << std::endl;
     int i3(3);
