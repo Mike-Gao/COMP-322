@@ -3,11 +3,12 @@
 //
 
 #include "blackjack.h"
-#include <stdlib.h>
+#include <cstdlib>
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <random>
 
-template<class Card, class Allocator = std::allocator<Card>> class vec;
 
 using namespace std;
 class Card{
@@ -38,8 +39,10 @@ class Hand{
 private:
     std::vector<Card> vec;
 public:
-    void add(Card c){
+    Hand(){
         vec.reserve(30);
+    }
+    void add(Card c){
         vec.push_back(c);
     }
     void clear() {
@@ -47,19 +50,23 @@ public:
     }
     int getTotal() {
         std::vector<Card>::iterator it;
-        int total, total2, oneacc = 0;
+        int total, acc, oneAcc = 0;
         for (it = vec.begin(); it != vec.end(); ++it) {
             total += it->getValue();
             if (1 == it->getValue()) {
-                oneacc += 1;
+                oneAcc += 1;
             }
         }
-        total2 = total;
-        while (oneacc != 0){
-            total2 += 10;
-            if (total2 == 21) break;
+        acc = total;
+        while (oneAcc != 0){
+            acc += 10;
+            if (acc == 21) break;
+            if (acc > 21){
+                acc -= 10;
+                break;
+            }
         }
-        return (total == 21 || total2 == 21) ? 21 : total;
+        return acc;
     }
 };
 
@@ -67,25 +74,21 @@ class Deck{
 private:
     std::vector<Card> vec;
 public:
+    Deck(){
+        vec.reserve(60);
+        this->populate();
+        this->shuffle();
+    }
     void populate()
     {
-        vec.reserve(60);
         for (int i = Card::ACE; i != Card::KING; i++){
-            vec.push_back(Card(static_cast<Card::Rank>(i), static_cast<Card::Type>('C')));
-        }
-        for (int i = Card::ACE; i != Card::KING; i++){
-            vec.push_back(Card(static_cast<Card::Rank>(i), static_cast<Card::Type>('D')));
-        }
-        for (int i = Card::ACE; i != Card::KING; i++){
-            vec.push_back(Card(static_cast<Card::Rank>(i), static_cast<Card::Type>('H')));
-        }
-        for (int i = Card::ACE; i != Card::KING; i++){
-            vec.push_back(Card(static_cast<Card::Rank>(i), static_cast<Card::Type>('S')));
+            for (int j = Card::CLUBS; i != Card::SPADES; i++)
+            vec.push_back(Card(static_cast<Card::Rank>(i), static_cast<Card::Type>(j)));
         }
     }
     void shuffle()
     {
-        shuffle();
+        std::shuffle(begin(vec),end(vec), default_random_engine{});
     }
     void deal(Hand h){
         h.add(vec.back());
@@ -93,39 +96,63 @@ public:
     }
 };
 
-class AbstractPlayer{
-private:
-
+class AbstractPlayer : public Hand {
 public:
-    virtual bool isDrawing() const = 0;
-    bool isBust();
+    virtual bool isDrawing() = 0;
+    virtual bool isBusted()
+    {
+        return (getTotal() > 21) ? true : false;
+    }
 };
 
 
-class ComputerPlayer{
-private:
+class ComputerPlayer : public AbstractPlayer {
 public:
-    void isDrawing();
+    bool isDrawing()
+    {
+        return (getTotal() <= 16) ?  true : false;
+    }
 };
 
-class BlackJackGame{
+class HumanPlayer : public AbstractPlayer{
+public:
+    bool isDrawing()
+    {
+        bool answer;
+        cout << "Do you want to draw another card? (y/n): ";
+        cin >> answer;
+        cout << endl;
+        while (answer != 'y' && answer != 'n'){
+            cout << "Invalid input! Please enter 'y' or 'n': ";
+            cin >> answer;
+        }
+        return (answer=='y') ? true : false;
+    }
+
+    void announce(Hand adversary)
+    {
+        if ( isBusted() ){
+            cout << "Player busts." << endl;
+            cout << "Casino wins!" << endl;
+        } else if ( adversary.getTotal() > 21 ) {
+            cout << "Casino busts." << endl;
+            cout << "Player wins!" << endl;
+        } else if ( getTotal() > adversary.getTotal()){
+            cout << "Player wins!" << endl;
+        } else {
+            cout << "Casino wins!" << endl;
+        }
+    }
+};
+
+class BlackJackGame {
 private:
     Deck m_deck;
     ComputerPlayer m_casino;
 public:
-    void play();
-};
-
-class humanPlayer{
-private:
-public:
-    void isDrawing()
-    {
-
-    }
-
-    void announce()
-    {
-
+    void play(){
+        m_deck.populate();
+        m_deck.shuffle();
     }
 };
+
