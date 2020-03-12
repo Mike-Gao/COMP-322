@@ -16,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/../Assignments/2/blackjack.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignments/2/blackjack.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Assignments/2/blackjack.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignments/2/blackjack.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VariablesAndTypes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VariablesAndTypes.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,25 +95,25 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="421" y="138" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1578955579705" />
-    <state width="1324" height="202" key="GridCell.Tab.0.bottom" timestamp="1579489819490">
+    <state width="1324" height="202" key="GridCell.Tab.0.bottom" timestamp="1583642523893">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1579489819490" />
+    <state width="1324" height="202" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1583642523893" />
     <state width="1324" height="202" key="GridCell.Tab.0.bottom/39.23.1327.745@39.23.1327.745" timestamp="1578956791255" />
-    <state width="1324" height="202" key="GridCell.Tab.0.center" timestamp="1579489819488">
+    <state width="1324" height="202" key="GridCell.Tab.0.center" timestamp="1583642523890">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1579489819488" />
+    <state width="1324" height="202" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1583642523890" />
     <state width="1324" height="202" key="GridCell.Tab.0.center/39.23.1327.745@39.23.1327.745" timestamp="1578956791252" />
-    <state width="1324" height="202" key="GridCell.Tab.0.left" timestamp="1579489819487">
+    <state width="1324" height="202" key="GridCell.Tab.0.left" timestamp="1583642523888">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1579489819487" />
+    <state width="1324" height="202" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1583642523888" />
     <state width="1324" height="202" key="GridCell.Tab.0.left/39.23.1327.745@39.23.1327.745" timestamp="1578956791251" />
-    <state width="1324" height="202" key="GridCell.Tab.0.right" timestamp="1579489819489">
+    <state width="1324" height="202" key="GridCell.Tab.0.right" timestamp="1583642523891">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1579489819489" />
+    <state width="1324" height="202" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1583642523891" />
     <state width="1324" height="202" key="GridCell.Tab.0.right/39.23.1327.745@39.23.1327.745" timestamp="1578956791254" />
     <state x="379" y="228" key="com.intellij.ide.util.TipDialog" timestamp="1579484180722">
       <screen x="36" y="23" width="1330" height="745" />

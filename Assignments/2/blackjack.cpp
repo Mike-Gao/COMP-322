@@ -12,34 +12,31 @@
 using namespace std;
 Card::Card(Rank r, Type t)
 {
-        this -> rank = r;
-        this -> type = t;
+    this -> rank = r;
+    this -> type = t;
 }
 
 int Card::getValue()
 {
-        return (this->rank >= 10) ? 10 : this->rank;
+    return (this->rank >= 10) ? 10 : this->rank;
 }
 
 void Card::displayCard()
 {
-        if (this -> rank == 11)
-            cout << 'J' + to_string(this->type);
-        if (this -> rank == 12)
-            cout << 'Q' + to_string(this->type);
-        if (this -> rank == 13)
-            cout << 'K' + to_string(this->type);
-        else
-            cout << to_string(this->rank) + to_string(this->type);
+    string arr[] = {"C","D","H","S"};
+    if (this -> rank == 11)
+        cout << "J" << arr[this->type];
+    else if (this -> rank == 12)
+        cout << "Q" + arr[this->type];
+    else if (this -> rank == 13)
+        cout << "K" + arr[this->type];
+    else
+        cout << to_string(this->rank) + arr[this->type];
 }
 
-Hand::Hand()
-{
-        vec.reserve(30);
-}
 void Hand::add(Card c)
 {
-        vec.push_back(c);
+    vec.push_back(c);
 }
 
 void Hand::clear()
@@ -47,39 +44,33 @@ void Hand::clear()
     vec.clear();
 }
 
-int Hand::getTotal() {
+void Hand::print(){
+    for (Card i : vec)
+    {
+        i.displayCard();
+        cout << " ";
+    }
+}
+
+int Hand::getTotal()
+{
     std::vector<Card>::iterator it;
-    int total, acc, oneAcc = 0;
+    int total = 0;
+    bool hasAce = false;
     for (it = vec.begin(); it != vec.end(); ++it)
     {
         total += it->getValue();
-        if (1 == it->getValue()) oneAcc += 1;
-        acc = total;
-        while (oneAcc != 0)
-        {
-            acc += 10;
-            if (acc == 21) break;
-            if (acc > 21){
-                acc -= 10;
-                break;
-            }
-        }
-        return acc;
+        if (1 == it->getValue()) hasAce = true;
     }
-};
-
-Deck::Deck()
-{
-        vec.reserve(60);
-        this->populate();
-        this->shuffle();
+    return (hasAce && total + 10 < 21) ? total + 10 : total;
 }
+
 
 void Deck::populate()
 {
     for (int i = Card::ACE; i <= Card::KING ; i++)
     {
-        for (int j = Card::CLUBS; i <= Card::SPADES; i++)
+        for (int j = Card::CLUBS; j <= Card::SPADES; j++)
         {
             vec.push_back(Card(static_cast<Card::Rank>(i), static_cast<Card::Type>(j)));
         }
@@ -88,10 +79,10 @@ void Deck::populate()
 
 void Deck::shuffle()
 {
-    std::shuffle(begin(vec),end(vec), default_random_engine{});
+    ::shuffle(begin(vec),end(vec), default_random_engine{});
 }
 
-void Deck::deal(Hand h)
+void Deck::deal(Hand &h)
 {
     h.add(vec.back());
     vec.pop_back();
@@ -99,26 +90,21 @@ void Deck::deal(Hand h)
 
 bool AbstractPlayer::isBusted()
 {
-    return (getTotal() > 21) ? true : false;
+    return (getTotal() > 21);
 }
 
 
 bool ComputerPlayer::isDrawing()
 {
-        return (getTotal() <= 16) ? true : false;
+    return (getTotal() <= 16);
 }
 
 bool HumanPlayer::isDrawing()
 {
-    bool answer;
+    char answer;
     cout << "Do you want to draw another card? (y/n): ";
     cin >> answer;
     cout << endl;
-    while (answer != 'y' && answer != 'n')
-    {
-        cout << "Invalid input! Please enter 'y' or 'n': ";
-        cin >> answer;
-    }
     return (answer=='y') ? true : false;
 }
 
@@ -137,7 +123,51 @@ void HumanPlayer::announce(Hand adversary)
     }
 }
 
+void ComputerPlayer::displayInfo()
+{
+    cout << "Casino : ";
+    this->print();
+    cout << "[" << to_string(this-> getTotal()) << "]";
+    cout << endl;
+}
+void HumanPlayer::displayInfo()
+{
+    cout << "Player : ";
+    this->print();
+    cout << "[" << to_string(this-> getTotal()) << "]";
+    cout << endl;
+}
+
+
 void BlackJackGame::play()
 {
+    m_deck.populate();
+    m_deck.shuffle();
+    m_casino.clear();
+    HumanPlayer human;
+    m_deck.deal(m_casino);
+    m_casino.displayInfo();
+    m_deck.deal(human);
+    do {
+        m_deck.deal(human);
+        human.displayInfo();
+        if (human.isBusted()) {
+            human.announce(m_casino);
+            return;
+        }
+    } while (human.isDrawing());
+
+    while (m_casino.isDrawing())
+    {
+        m_deck.deal(m_casino);
+        m_casino.displayInfo();
+        if(m_casino.isBusted())
+        {
+            human.announce(m_casino);
+            return;
+        }
+    }
+
+    human.announce(m_casino);
 
 }
