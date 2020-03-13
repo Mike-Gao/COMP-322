@@ -10,17 +10,22 @@
 #include <random>
 
 using namespace std;
+
+// Card Constructor
 Card::Card(Rank r, Type t)
 {
     this -> rank = r;
     this -> type = t;
 }
 
+// Get the value of a card
 int Card::getValue()
 {
+    /* if the rank is bigger than 10 (J,Q,K) , return 10 */
     return (this->rank >= 10) ? 10 : this->rank;
 }
 
+// Printout one card
 void Card::displayCard()
 {
     string arr[] = {"C","D","H","S"};
@@ -34,17 +39,21 @@ void Card::displayCard()
         cout << to_string(this->rank) + arr[this->type];
 }
 
+// Add a card to a hand
 void Hand::add(Card c)
 {
     vec.push_back(c);
 }
 
+// Clear the hand
 void Hand::clear()
 {
     vec.clear();
 }
 
+// Print out a hand
 void Hand::print(){
+    /* Iterating through every Card in vec */
     for (Card i : vec)
     {
         i.displayCard();
@@ -52,6 +61,7 @@ void Hand::print(){
     }
 }
 
+// Get total value of a hand
 int Hand::getTotal()
 {
     std::vector<Card>::iterator it;
@@ -62,12 +72,16 @@ int Hand::getTotal()
         total += it->getValue();
         if (1 == it->getValue()) hasAce = true;
     }
+    /* You can have a maximum of one ace here,
+     * otherwise you'll be bust.
+     * So return either total or total+10 */
     return (hasAce && total + 10 < 21) ? total + 10 : total;
 }
 
-
+// Populate the deck
 void Deck::populate()
 {
+    // Simply add every card into the deck
     for (int i = Card::ACE; i <= Card::KING ; i++)
     {
         for (int j = Card::CLUBS; j <= Card::SPADES; j++)
@@ -77,52 +91,62 @@ void Deck::populate()
     }
 }
 
+// Shuffle: shuffle the cards in a deck
 void Deck::shuffle()
 {
+    // Using std::shuffle to shuffle the deck
     ::shuffle(begin(vec),end(vec), default_random_engine{});
 }
 
+// Deal: deal one card to a hand
 void Deck::deal(Hand &h)
 {
+    // Add a card from the deck to a hand
     h.add(vec.back());
+    // Remove that card from the deck
     vec.pop_back();
 }
 
+// Check if the player is busted
 bool AbstractPlayer::isBusted()
 {
     return (getTotal() > 21);
 }
 
-
+// Check whether the ComputerPlayer should be drawing
 bool ComputerPlayer::isDrawing()
 {
     return (getTotal() <= 16);
 }
 
+// Ask Human Player if he/she wants to draw again
 bool HumanPlayer::isDrawing()
 {
     char answer;
     cout << "Do you want to draw another card? (y/n): ";
     cin >> answer;
-    cout << endl;
-    return (answer=='y') ? true : false;
+    return (answer=='y');
 }
 
+// Announce winner
 void HumanPlayer::announce(Hand adversary)
 {
-    if ( isBusted() ){
+    if ( isBusted() ){ // Player Bust
         cout << "Player busts." << endl;
         cout << "Casino wins!" << endl;
-    } else if ( adversary.getTotal() > 21 ) {
+    } else if ( adversary.getTotal() > 21 ) { // Casino Bust
         cout << "Casino busts." << endl;
         cout << "Player wins!" << endl;
-    } else if ( getTotal() > adversary.getTotal()){
+    } else if ( adversary.getTotal() == getTotal() ){ // Casino getTotal() == Player getTotal()
+        cout << "Push: No one wins." << endl;
+    } else if ( getTotal() > adversary.getTotal()){ // Player getTotal() > Casino getTotal()
         cout << "Player wins!" << endl;
-    } else {
+    } else { // Casino getTotal() > Player getTotal()
         cout << "Casino wins!" << endl;
     }
 }
 
+/* Nice printout for ComputerPlayer and HumanPlayer */
 void ComputerPlayer::displayInfo()
 {
     cout << "Casino : ";
@@ -141,6 +165,7 @@ void HumanPlayer::displayInfo()
 
 void BlackJackGame::play()
 {
+    // Initialization
     m_deck.populate();
     m_deck.shuffle();
     m_casino.clear();
@@ -148,6 +173,7 @@ void BlackJackGame::play()
     m_deck.deal(m_casino);
     m_casino.displayInfo();
     m_deck.deal(human);
+    // Player Draw
     do {
         m_deck.deal(human);
         human.displayInfo();
@@ -156,7 +182,7 @@ void BlackJackGame::play()
             return;
         }
     } while (human.isDrawing());
-
+    // Casino Draw
     while (m_casino.isDrawing())
     {
         m_deck.deal(m_casino);
@@ -167,7 +193,5 @@ void BlackJackGame::play()
             return;
         }
     }
-
     human.announce(m_casino);
-
 }

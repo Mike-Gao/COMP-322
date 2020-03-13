@@ -14,7 +14,7 @@ int main() {
         // Check whether the player would like to play another round
         cout << "Would you like another round? (y/n): ";
         cin >> answer;
-        cout << endl << endl;
+        cout << endl;
         playAgain = (answer == 'y' ? true : false);
     }
     cout << "Gave over!";
